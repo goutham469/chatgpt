@@ -4,17 +4,18 @@ const path = require('path')
 
 app.use(exp.json())
 
-app.get('/',(req,res)=>{
+app.get('/info',(req,res)=>{
     res.send(`<div>
         <h2 style="color:red;">Server running for GEMINI Ai API</h2>
+        <a href='https://chatgpt-x0sc.onrender.com'>visit website</a>
         <a href='mailto:uppinurigouthamreddy@gmail.com'>contact developer (email)</a>
         </div>`)
 })
-app.get('/ai',(req,res)=>{
+app.get('/',(req,res)=>{
   res.sendFile(path.join(__dirname,'./index.html'))
 })
 
-console.log(process.env.GEMINI_API_KEY)
+// console.log(process.env.GEMINI_API_KEY)
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 

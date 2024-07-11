@@ -54,6 +54,7 @@
     <div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
         <div>
             <h2>AI System</h2>
+            <a href="https://chatgpt-x0sc.onrender.com/info">developer details</a>
             <p>Hi, I am AI speaking. Ask any doubt you have, I will solve it in a few seconds.</p>
             <div class="chats">
                 <p>Chats you have made</p>
@@ -73,7 +74,7 @@
 
             if (prompt) {
                 let prompt_input =prompt + " in less than 200 words";
-                let response = await fetch(`http://localhost:4000/chat`, {
+                let response = await fetch(`https://chatgpt-x0sc.onrender.com/chat`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ "prompt": prompt_input })
