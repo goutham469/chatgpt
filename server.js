@@ -7,14 +7,18 @@ app.use(exp.json())
 app.get('/info',(req,res)=>{
     res.send(`<div>
         <h2 style="color:red;">Server running for GEMINI Ai API</h2>
-        <img style="width:300px;height:300px;border-radius:50px" src='./profile.png'/>
+        <img style="width:300px;height:300px;border-radius:50px" src='https://res.cloudinary.com/dxvjbmgta/image/upload/v1715827536/gouthamTest/1715827527762.jpg'/>
         <h3>Goutham reddy Uppunuri</h3>
         <p>Student at VNRVJIET</p>
         <p>phone :- +91 9398141936</p>
         <a href='https://www.linkedin.com/in/goutham-reddy-279782283?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'>linked in</a>
+        <br/>
         <a href='https://www.instagram.com/go.utham8129?igsh=MTFpM3Q5eHhoMHpjMQ=='>instagram</a>
+        <br/>
         <a href='https://chatgpt-x0sc.onrender.com/myresume'>my resume</a>
+        <br/>
         <a href='https://chatgpt-x0sc.onrender.com'>visit website</a>
+        <br/>
         <a href='mailto:uppinurigouthamreddy@gmail.com'>contact developer (email)</a>
         </div>`)
 })
