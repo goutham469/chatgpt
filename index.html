@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat</title>
+    <style>
+        .inputforPrompt {
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: rgb(51, 46, 46);
+            color: white;
+            padding: 10px;
+            height: 30px;
+            width: 200px;
+        }
+        .button1 {
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 7px;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            cursor: pointer;
+        }
+        .chats {
+            height: 60vh;
+            width: 90vw;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: rgb(86, 91, 96);
+            overflow-y: auto;
+        }
+        .childAnswerPara {
+            width: 85vw;
+            text-align: justify;
+            color: white;
+        }
+        .childMessage {
+            margin-bottom: 10px;
+        }
+        .childMessage p {
+            margin: 5px 0;
+        }
+        .question {
+            font-weight: 900;
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+        <div>
+            <h2>AI System</h2>
+            <p>Hi, I am AI speaking. Ask any doubt you have, I will solve it in a few seconds.</p>
+            <div class="chats">
+                <p>Chats you have made</p>
+            </div>
+            <form>
+                <input type="text" placeholder="Ask anything..." class="inputforPrompt"></input >
+                <button class="button1" onclick="generate(event)">Generate</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        async function generate(event) {
+            event.preventDefault();
+            let prompt = document.querySelector('.inputforPrompt').value;
+            console.log(prompt);
+            document.querySelector('.inputforPrompt').value = null;
+
+            if (prompt) {
+                let prompt_input =prompt + " in less than 200 words";
+                let response = await fetch(`http://localhost:4000/chat`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ "prompt": prompt_input })
+                });
+                let data = await response.json();
+                console.log(data);
+
+                let child = document.createElement('div');
+                child.className = "childMessage";
+
+                let question = document.createElement('p');
+                question.className = "question";
+                question.innerText = "You: " + prompt;
+
+                let answer = document.createElement('p');
+                answer.className = "childAnswerPara";
+                answer.innerText = "AI: " + data.message_from_model;
+
+                child.appendChild(question);
+                child.appendChild(answer);
+
+                document.querySelector('.chats').appendChild(child);
+            } else {
+                alert('Enter your question!');
+            }
+        }
+    </script>
+</body>
+</html>
