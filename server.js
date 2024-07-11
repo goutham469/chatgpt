@@ -7,6 +7,7 @@ app.use(exp.json())
 app.get('/info',(req,res)=>{
     res.send(`<div>
         <h2 style="color:red;">Server running for GEMINI Ai API</h2>
+        <img style="width:300px;height:300px;border-radius:50px" src='./profile.png'/>
         <h3>Goutham reddy Uppunuri</h3>
         <p>Student at VNRVJIET</p>
         <p>phone :- +91 9398141936</p>
