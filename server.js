@@ -7,12 +7,21 @@ app.use(exp.json())
 app.get('/info',(req,res)=>{
     res.send(`<div>
         <h2 style="color:red;">Server running for GEMINI Ai API</h2>
+        <h3>Goutham reddy Uppunuri</h3>
+        <p>Student at VNRVJIET</p>
+        <p>phone :- +91 9398141936</p>
+        <a href='https://www.linkedin.com/in/goutham-reddy-279782283?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'>linked in</a>
+        <a href='https://www.instagram.com/go.utham8129?igsh=MTFpM3Q5eHhoMHpjMQ=='>instagram</a>
+        <a href='https://chatgpt-x0sc.onrender.com/myresume'>my resume</a>
         <a href='https://chatgpt-x0sc.onrender.com'>visit website</a>
         <a href='mailto:uppinurigouthamreddy@gmail.com'>contact developer (email)</a>
         </div>`)
 })
 app.get('/',(req,res)=>{
   res.sendFile(path.join(__dirname,'./index.html'))
+})
+app.get('/myresume',async(req,res)=>{
+  res.sendFile(path.join(__dirname,'./gouthamreddy.pdf'));
 })
 
 // console.log(process.env.GEMINI_API_KEY)
